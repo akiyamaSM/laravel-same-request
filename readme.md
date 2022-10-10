@@ -3,7 +3,7 @@ This laravel package will allow you to execute a code once in the current reques
 
 ## Installation
 
-You will need to register the middelware in the  ````config/app.php```` .
+You will(for L5) need to register the service provider in the  ````config/app.php```` .
 ````php
 return [
        /*
@@ -21,6 +21,22 @@ return [
         Inani\UniqueRequest\UniqueRequestServiceProvider::class, // <=== HERE
 ];
 ````
+
+You will need to use the middleware or binding it globally in your  ````app/Http/Kernel.php````
+
+````php
+return [
+        'api' => [
+                'throttle:120,1',
+                'bindings',
+                PreventCache::class,
+                GetJwtFromCookie::class,
+                AddUniqueIdentifier::class
+         ],
+];
+````
+
+
 
 ## Usage
 
