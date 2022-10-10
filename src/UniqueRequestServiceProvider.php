@@ -14,11 +14,14 @@ class UniqueRequestServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton('localeCache', function(){
+            return new CacheContainer();
+        });
         Request::macro('once', function (Closure $function, $key) {
             if(!request()->has('uuid_request')){
                 return $function();
             }
-            return cache()->remember($key. '_' . request()->get('uuid_request'), now()->addSeconds(3), $function);
+            return app('localeCache')->remember($key. '_' . request()->get('uuid_request'), $function);
         });
     }
 }
