@@ -15,11 +15,10 @@ class UniqueRequestServiceProvider extends ServiceProvider
     public function register()
     {
         Request::macro('once', function (Closure $function, $key) {
-            /** @var Request $this */
-            if(!$this->has('uuid_request')){
+            if(!request()->has('uuid_request')){
                 return $function();
             }
-            return cache()->remember($key. '_' . $this->get('uuid_request'), now()->addSeconds(3), $function);
+            return cache()->remember($key. '_' . request()->get('uuid_request'), now()->addSeconds(3), $function);
         });
     }
 }
