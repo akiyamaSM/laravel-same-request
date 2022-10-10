@@ -3,6 +3,10 @@ This laravel package will allow you to execute a code once in the current reques
 
 ## Installation
 
+````
+compose require inani/laravel-same-request
+````
+
 You will(for L5) need to register the service provider in the  ````config/app.php```` .
 ````php
 return [
