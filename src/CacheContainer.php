@@ -14,6 +14,6 @@ class CacheContainer
             $this->entries[$key] = $value();
         }
 
-        return $value;
+        return $this->entries[$key];
     }
 }
