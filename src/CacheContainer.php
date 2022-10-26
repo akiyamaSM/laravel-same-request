@@ -10,7 +10,7 @@ class CacheContainer
 
     public function remember($key, $value)
     {
-        if(empty($this->entries[$key])){
+        if(!array_key_exists($key, $this->entries)){
             $this->entries[$key] = $value();
         }
 
