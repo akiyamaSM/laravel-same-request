@@ -1,4 +1,7 @@
 ## Motivation
+
+[![Total Downloads](https://img.shields.io/packagist/dt/inani/laravel-same-request.svg?style=flat-square)]([https://packagist.org/packages/spatie/laravel-rate-limited-job-middleware](https://packagist.org/packages/inani/laravel-same-request))
+
 This laravel package will allow you to execute a code once in the current request based on the key provided. 
 
 ## Installation
